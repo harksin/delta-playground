@@ -1,0 +1,8 @@
+.idea/
+.bsp/
+data/
+target
+project/target
+sample/
+s2/
+delta-table/

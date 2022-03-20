@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+  minio:
+    image: minio/minio
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data
+    environment:
+      MINIO_ACCESS_KEY: FAKE_ACCESS_KEY
+      MINIO_SECRET_KEY: FAKE_SECRET_KEY
+
+
+    ports:
+      - "9000:9000"
+    command: "server /data"
