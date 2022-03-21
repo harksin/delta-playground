@@ -7,8 +7,8 @@ services:
         source: ./data
         target: /data
     environment:
-      MINIO_ACCESS_KEY: FAKE_ACCESS_KEY
-      MINIO_SECRET_KEY: FAKE_SECRET_KEY
+      MINIO_ACCESS_KEY: minio_access_key
+      MINIO_SECRET_KEY: minio_secret_key
 
 
     ports:

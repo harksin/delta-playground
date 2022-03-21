@@ -4,7 +4,7 @@ import org.apache.spark.sql.functions.col
 import org.apache.spark.sql.types._
 
 
-object main_stream_s3 extends App {
+object main_stream_minio extends App {
 
   val rootLogger = Logger.getRootLogger()
   rootLogger.setLevel(Level.ERROR)
@@ -21,8 +21,8 @@ object main_stream_s3 extends App {
 
   spark.sparkContext.hadoopConfiguration.set("fs.s3a.impl", "org.apache.hadoop.fs.s3a.S3AFileSystem")
   spark.sparkContext.hadoopConfiguration.set("fs.s3a.endpoint", "http://127.0.0.1:9000");
-  spark.sparkContext.hadoopConfiguration.set("fs.s3a.access.key", "FAKE_ACCESS_KEY");
-  spark.sparkContext.hadoopConfiguration.set("fs.s3a.secret.key", "FAKE_SECRET_KEY");
+  spark.sparkContext.hadoopConfiguration.set("fs.s3a.access.key", sys.env.get("MINIO_ACCES_KEY").get)
+  spark.sparkContext.hadoopConfiguration.set("fs.s3a.secret.key", sys.env.get("MINIO_SECRET_KEY").get)
   spark.sparkContext.hadoopConfiguration.set("fs.s3a.path.style.access", "true")
 
   val schema = new StructType()
