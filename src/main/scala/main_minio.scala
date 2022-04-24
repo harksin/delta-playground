@@ -44,9 +44,9 @@ object main_minio extends App {
 
   df.write
     .mode(SaveMode.Overwrite)
-    .parquet("s3a://lake-0/people.parquet")
+    .parquet("s3a://lake-0/people-raw.parquet")
 
-  val parqDF = spark.read.parquet("s3a://lake-0/people.parquet")
+  val parqDF = spark.read.parquet("s3a://lake-0/people-raw.parquet")
   parqDF.createOrReplaceTempView("ParquetTable")
 
   spark.sql("select * from ParquetTable where salary >= 4000").explain()
@@ -58,7 +58,7 @@ object main_minio extends App {
   df.write
     .mode(SaveMode.Overwrite)
     .partitionBy("gender", "salary")
-    .parquet("s3a://lake-0/people2.parquet")
+    .parquet("s3a://lake-0/people-partitioned.parquet")
 
   spark.stop()
 

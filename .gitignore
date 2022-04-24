@@ -13,3 +13,5 @@ delta-table/
 .envrc
 local-data/
 
+./src/main/scala/main_local_playground.scala
+
