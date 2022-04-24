@@ -9,8 +9,12 @@ services:
     environment:
       MINIO_ACCESS_KEY: minio_access_key
       MINIO_SECRET_KEY: minio_secret_key
-
-
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    expose:
+      - "9000"
+      - "9001"
     ports:
       - "9000:9000"
-    command: "server /data"
+      - "9001:9001"
+    command: server --address 0.0.0.0:9000 --console-address ":9001"  /data
