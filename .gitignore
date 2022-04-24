@@ -1,5 +1,8 @@
 .idea/
 .bsp/
+.bloop/
+.metals/
+metals.sbt
 data/
 target
 project/target
@@ -7,3 +10,5 @@ sample/
 s2/
 delta-table/
 .envrc
+local-data/
+
