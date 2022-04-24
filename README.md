@@ -106,6 +106,8 @@ Here we go ... spark again
 we would like to "watch" the s3 directory and process the new data each time a new file is added, process it and update accordingly the "repartitioned data"
 who can we do that ? 
 
+repartition rules : "powerplant/yyyy/mm/dd/"
+
 => 30 min
 
 # Step 4 time machine & acid layer
